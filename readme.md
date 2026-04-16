@@ -14,6 +14,10 @@ chmod +x launch-debian.sh install-claude-code.sh enter.sh
 podman cp install-claude-code.sh claude-code-dev:/tmp/
 podman exec -it claude-code-dev bash /tmp/install-claude-code.sh
 
+# 2a. Optinally, install gh to auth your github easily
+podman cp install-gh.sh claude-code-dev:/tmp/
+podman exec -it claude-code-dev bash /tmp/install-gh.sh
+
 # 3. Shell in whenever you want
 ./enter.sh
 ```
