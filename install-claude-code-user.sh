@@ -1,20 +1,9 @@
 #!/usr/bin/env bash
-# install-claude-code.sh
+# install-claude-code-user.sh
 # Install Claude Code (user-mode, no root) inside a Debian container
-# Run this inside the container: bash install-claude-code.sh
+# Run this inside the container as a limited user after installing as root or running the apt command from install-claude-code.sh : bash install-claude-code-user.sh
 
 set -euo pipefail
-
-echo "==> Updating apt and installing dependencies..."
-apt-get update -qq
-apt-get install -y --no-install-recommends \
-  curl \
-  tmux \
-  ca-certificates \
-  git \
-  procps \
-  vim \
-  2>/dev/null
 
 echo "==> Installing Claude Code via native installer..."
 # The native installer installs to ~/.claude/local/ and updates ~/.bashrc / ~/.profile

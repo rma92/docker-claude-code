@@ -4,10 +4,9 @@
 
 set -euo pipefail
 
-CONTAINER_NAME="claude-code-dev"
+CONTAINER_NAME="${1:-claude-code-dev}"
 IMAGE="debian:bookworm-slim"
 
-# Check if container already exists
 if podman container exists "$CONTAINER_NAME" 2>/dev/null; then
   echo "Container '$CONTAINER_NAME' already exists. Starting it..."
   podman start "$CONTAINER_NAME"
@@ -24,7 +23,7 @@ fi
 
 echo ""
 echo "Container is running. To enter it, run:"
-echo "  podman exec -it $CONTAINER_NAME bash"
+echo "  podman exec -it $CONTAINER_NAME bash --login"
 echo ""
 echo "Or run the installer directly:"
 echo "  podman exec -it $CONTAINER_NAME bash /path/to/install-claude-code.sh"
